@@ -82,20 +82,24 @@ npm run preview
 1. Uma conta no [Render.com](https://render.com)
 2. Repositório GitHub com este projeto
 
-### Instruções de Deploy
+### Instruções de Deploy ⚠️ IMPORTANTE
+
+O arquivo `render.yaml` já está configurado com os comandos corretos. Siga os passos:
 
 1. **Conectar ao Render:**
    - Vá em [Render Dashboard](https://dashboard.render.com)
    - Clique em "New +"
    - Selecione "Web Service"
-   - Conecte seu repositório GitHub
+   - Conecte seu repositório GitHub e selecione `phdev13/chillimania`
 
-2. **Configurar Build:**
-   - **Name:** chillimania (ou nome que preferir)
-   - **Environment:** Node
-   - **Build Command:** `npm install && npm run build`
-   - **Start Command:** `node server.js`
-   - **Node Version:** 18
+2. **Configuração automática via render.yaml:**
+   - O Render detectará o arquivo `render.yaml` automaticamente
+   - Se não detectar, configure manualmente:
+     - **Name:** chillimania-portfolio
+     - **Environment:** Node
+     - **Build Command:** `npm install && npm run build`
+     - **Start Command:** `node server.js`
+     - **Node Version:** 18
 
 3. **Variáveis de Ambiente:**
    - Se usar APIs, adicione em "Environment Variables":
@@ -105,9 +109,17 @@ npm run preview
 4. **Deploy:**
    - Clique em "Create Web Service"
    - O Render fará o build e deploy automaticamente
-   - Você receberá um URL público (ex: `https://chillimania.onrender.com`)
+   - Você receberá um URL público (ex: `https://chillimania-portfolio.onrender.com`)
 
 ### Troubleshooting
+
+**Erro "Empty build command; skipping build":**
+- Certifique-se que o `render.yaml` foi feito o push
+- Ou configure manualmente o Build Command no Render
+
+**Erro "Publish directory dist does not exist":**
+- Execute localmente: `npm run build`
+- Verifique se a pasta `dist` é criada
 
 **Erro "Cannot find module":**
 - Certifique-se de que todas as dependências estão no `package.json`

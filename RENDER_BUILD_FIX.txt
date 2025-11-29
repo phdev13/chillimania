@@ -1,0 +1,72 @@
+🚀 SOLUÇÃO PARA ERRO DE BUILD NO RENDER
+═══════════════════════════════════════════════════════════════════════════════
+
+O problema: "Empty build command; skipping build"
+
+SOLUÇÃO: Configure MANUALMENTE no Render Dashboard
+
+═══════════════════════════════════════════════════════════════════════════════
+
+⚠️ IMPORTANTE - SIGA ESTES PASSOS:
+
+1. Vá para: https://dashboard.render.com
+
+2. Clique em "New +" → "Web Service"
+
+3. Selecione seu repositório: phdev13/chillimania
+
+4. PREENCHA OS CAMPOS ASSIM:
+
+   ┌─────────────────────────────────────────────────────┐
+   │ Name: chillimania-portfolio                         │
+   │ Environment: Node                                   │
+   │                                                     │
+   │ Build Command:                                      │
+   │ npm install && npm run build                        │
+   │                                                     │
+   │ Start Command:                                      │
+   │ node server.js                                      │
+   │                                                     │
+   │ Publish Directory:                                  │
+   │ dist                                                │
+   └─────────────────────────────────────────────────────┘
+
+5. SCROLL DOWN - Procure por "Advanced"
+
+6. Em "Advanced", procure por "Node Version"
+   └─ Deixe em branco ou coloque 18.x
+
+7. Se houver "Root Directory":
+   └─ Deixe em branco (raiz do projeto)
+
+8. Clique em "Create Web Service"
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ RESULTADO ESPERADO:
+
+Você verá os logs:
+==> Building...
+==> Cloning from https://github.com/phdev13/chillimania
+==> Checking out commit ... in branch main
+==> Installing dependencies with npm...
+added 154 packages...
+==> Running build command...
+vite v6 building for production...
+✓ 1713 modules transformed...
+dist/index.html 2.50 kB
+dist/assets/index-7OZlUPZD.js 283.31 kB
+✓ built in 7.70s
+==> Build successful!
+
+Seu site estará em: https://chillimania-portfolio.onrender.com 🎉
+
+═══════════════════════════════════════════════════════════════════════════════
+
+❓ DICAS:
+
+• Se der erro novamente, clique em "Redeploy"
+• Os logs mostram exatamente o que está acontecendo
+• Se precisar, desligue e religue o serviço
+
+═══════════════════════════════════════════════════════════════════════════════

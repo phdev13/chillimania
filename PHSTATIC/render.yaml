@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: phstatic
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview
+    envVars:
+      - key: GEMINI_API_KEY
+        scope: run
+        sync: false
